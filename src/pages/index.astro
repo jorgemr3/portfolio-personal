@@ -1,0 +1,164 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const langs = [
+  { src: "/js.png", alt: "JavaScript" },
+  { src: "/dart.png", alt: "Dart" },
+  { src: "/php.png", alt: "PHP" },
+  { src: "/py.png", alt: "Python" },
+  { src: "/html.png", alt: "HTML" },
+  { src: "/css.png", alt: "CSS" },
+  { src: "/sql.png", alt: "SQL" },
+  { src: "/csharp.png", alt: "C#" },
+];
+
+const frameworks = [
+  { src: "/astro.png", alt: "Astro" },
+  { src: "/flutter.png", alt: "Flutter" },
+  { src: "/laravel.png", alt: "Laravel" },
+  { src: "/tailwind.png", alt: "Tailwind CSS" },
+];
+
+const tools = [
+  { src: "/git.png", alt: "Git / GitHub" },
+  { src: "/npm.png", alt: "npm" },
+  { src: "/vscode.png", alt: "VS Code" },
+  { src: "/firebase.png", alt: "Firebase" },
+  { src: "/figma.png", alt: "Figma" },
+  { src: "/hive.png", alt: "Hive" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main section h6 {
+        text-align: center;
+        margin-bottom: 1rem;
+		margin-top: 2rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: rgb(var(--gray-dark));
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		border-bottom: 2px solid rgb(var(--gray));
+		padding-bottom: 0.5rem;
+		width: 100%;
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+		font-family: 'Poppins', sans-serif;
+      }
+
+      /* ==== GRID BASE ==== */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 2rem 0;
+      }
+
+      /* ==== MÓVIL (por defecto) ==== */
+      /* 2 columnas */
+
+      /* ==== TABLET ==== */
+      @media (min-width: 640px) {
+        .skills-grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      /* ==== ESCRITORIO ==== */
+      @media (min-width: 1024px) {
+        .skills-grid {
+          grid-template-columns: repeat(5, 1fr);
+          gap: 2rem;
+        }
+      }
+
+      /* ==== TARJETAS ==== */
+      .My-logo {
+        display: inline-block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        cursor: pointer;
+        background: #fff;
+      }
+      .My-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .My-logo:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+      .My-logo figcaption {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main class="container mx-auto px-4">
+      <h2>👋 Welcome to My Portfolio</h2>
+
+      <section>
+        <h6>Languages</h6>
+        <div class="skills-grid">
+          {
+            langs.map((lang) => (
+              <figure class="My-logo">
+                <img src={lang.src} alt={lang.alt} />
+                <figcaption>{lang.alt}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h6>Tools</h6>
+        <div class="skills-grid">
+          {
+            tools.map((tool) => (
+              <figure class="My-logo">
+                <img src={tool.src} alt={tool.alt} />
+                <figcaption>{tool.alt}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h6>Frameworks</h6>
+        <div class="skills-grid">
+          {
+            frameworks.map((fw) => (
+              <figure class="My-logo">
+                <img src={fw.src} alt={fw.alt} />
+                <figcaption>{fw.alt}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
