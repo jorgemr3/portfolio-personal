@@ -1,8 +1,8 @@
 ---
 title: 'XpressPDF'
 description: 'An application to quickly issue purchase tickets and send them by email.'
-pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+pubDate: 'Jun 08 2025'
+heroImage: '/legacy_collage.png'
 ---
 
 XpressPDF is an application to quickly issue purchase tickets and send them by email. It is designed to be used by small businesses that need to issue tickets from an existing and well-tracked inventory. The application allows users to create custom tickets, manage inventory, and send tickets via email. It is built with a focus on simplicity and ease of use, making it accessible for users with varying levels of technical expertise.
